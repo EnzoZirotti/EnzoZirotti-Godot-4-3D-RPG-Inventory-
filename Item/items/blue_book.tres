@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cp0m2e844jrey"]
+
+[ext_resource type="Script" path="res://Item/item_data.gd" id="1_x06se"]
+[ext_resource type="Texture2D" uid="uid://v0mn6e3cau06" path="res://Item/#1 - Transparent Icons.png" id="2_u1q1r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8aofi"]
+atlas = ExtResource("2_u1q1r")
+region = Rect2(0, 416, 32, 32)
+
+[resource]
+script = ExtResource("1_x06se")
+name = "Blue Book"
+description = "A blue book
+"
+stackable = false
+texture = SubResource("AtlasTexture_8aofi")

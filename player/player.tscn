@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://n14jxs64ybqp"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_jpm3w"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_d1och"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jp70c"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_k8gmc"]
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0401365, 0)
+collision_layer = 2
+script = ExtResource("1_jpm3w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00653, 0)
+mesh = SubResource("CapsuleMesh_d1och")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00653, 0)
+shape = SubResource("CapsuleShape3D_jp70c")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45438, 0.057174)
+mesh = SubResource("BoxMesh_k8gmc")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.42015, -0.0822961)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.199641)
+
+[node name="InteractRay" type="RayCast3D" parent="Head/Camera3D"]
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+mouse_filter = 2
